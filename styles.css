@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    font-family: "Montserrat", serif;
+}
+
+img {
+    filter: blur(10px);
+}
+
+.content {
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 50px auto 50px auto;
+    text-align: center;
+    padding: 50px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#playAgainBtn{
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 0;
+}
