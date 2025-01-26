@@ -13,14 +13,14 @@ let characterHints = []
 let blurAmount = 10;
 
 async function getCharacter() {
-    const response = await fetch(api_url);
+    let pageNumber = Math.floor(Math.random() * (42 - 2 + 1)) + 2
+    const response = await fetch(api_url + `?page=${pageNumber}`);
     const data = await response.json();
 
-    //currently only includes the first 10 characters - increase here
-    //increase per game mode? easy/medium/hard
-    let characterId = Math.floor(Math.random() * 11)
+    let characterId = Math.floor(Math.random() * 20)
 
     character = data.results[characterId]
+    console.log(character)
     characterImg.src = character.image
     characterImg.style.filter = `blur(${blurAmount}px)`
     setupHints(character)
@@ -28,9 +28,9 @@ async function getCharacter() {
 
 function setupHints(character){
     characterHints = [
-        `Hint 1: The character is currently ${character.status}`,
-        `Hint 2: The character is ${character.species}`,
-        `Hint 3: The character is ${character.gender}`,
+        `Hint 1: The character's current status is ${character.status.toLowerCase()}`,
+        `Hint 2: The character's species is ${character.species.toLowerCase()}`,
+        `Hint 3: The character's gender is ${character.gender.toLowerCase()}`,
         `Hint 4: The character's initals are ${getInitals(character.name)}`
     ]
 }
